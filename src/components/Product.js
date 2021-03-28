@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../context";
+import PropTypes from "prop-types";
 
 export default class Product extends Component {
   render() {
@@ -48,6 +49,18 @@ export default class Product extends Component {
     );
   }
 }
+
+Product.propTypes = {
+  // PropTypes.shape is used when describing an object
+  // whose keys are known ahead of time, and may represent different types.
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    img: PropTypes.string,
+    price: PropTypes.number,
+    inCart: PropTypes.bool,
+  }).isRequired,
+};
 
 const ProductWrapper = styled.div`
   .card {
