@@ -9,7 +9,6 @@ export default class Modal extends Component {
     return (
       <ProductConsumer>
         {(value) => {
-          console.log("VALUE = ", value);
           const { modalOpen, closeModal } = value;
           const { img, title, price } = value.modalProduct;
           if (!modalOpen) {
@@ -28,18 +27,16 @@ export default class Modal extends Component {
                       <img src={img} className='img-fluid' alt='product' />
                       <h5>{title}</h5>
                       <h5 className='text-muted'>Price : $ {price}</h5>
-                      <div>
-                        <Link to='/'>
-                          <ButtonContainer onClick={() => closeModal()}>
-                            continue shopping
-                          </ButtonContainer>
-                        </Link>
-                        <Link to='/cart'>
-                          <ButtonContainer cart onClick={() => closeModal()}>
-                            go to cart
-                          </ButtonContainer>
-                        </Link>
-                      </div>
+                      <Link to='/'>
+                        <ButtonContainer onClick={() => closeModal()}>
+                          continue shopping
+                        </ButtonContainer>
+                      </Link>
+                      <Link to='/cart'>
+                        <ButtonContainer cart onClick={() => closeModal()}>
+                          go to cart
+                        </ButtonContainer>
+                      </Link>
                     </div>
                   </div>
                 </div>
