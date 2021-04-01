@@ -8,7 +8,6 @@ export default class Details extends Component {
     return (
       <ProductConsumer>
         {(value) => {
-          console.log(value.detailProduct);
           const {
             id,
             company,
