@@ -6,6 +6,7 @@ const ProductContext = React.createContext();
 class ProductProvider extends Component {
   state = {
     products: [],
+    // filteredProducts: [],
     detailProduct: detailProduct,
     cart: [],
     modalOpen: false,
@@ -41,6 +42,18 @@ class ProductProvider extends Component {
       return { detailProduct: product };
     });
   };
+
+  // // filter products by type
+  // getProductsByType = (type) => {
+  //   const filteredProducts = this.state.products.filter(
+  //     (item) => item.type === type
+  //   );
+  //   console.log("filteredProducts = ", filteredProducts);
+  //   this.setState(() => {
+  //     return { filteredProducts: filteredProducts };
+  //   });
+  //   // return filteredProducts;
+  // };
 
   addToCart = (id) => {
     let tempProducts = [...this.state.products];
