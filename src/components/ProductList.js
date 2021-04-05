@@ -9,13 +9,21 @@ export default class ProductList extends Component {
       <React.Fragment>
         <div className='py-5'>
           <div className='container'>
-            <Title name='สินค้าของเรา ปี๊บเล็ก ปี๊บใหญ่ our' title='products' />
+            <Title name='ปี๊บใหญ่ our' title='products' />
             <div className='row'>
               <ProductConsumer>
                 {(value) => {
-                  return value.products.map((product) => {
-                    return <Product key={product.id} product={product} />;
-                  });
+                  // return value.products.map((product) => {
+                  return value.products
+                    .filter((product) => product.type === "big bucket")
+                    .map((filteredProduct) => {
+                      return (
+                        <Product
+                          key={filteredProduct.id}
+                          filteredProduct={filteredProduct}
+                        />
+                      );
+                    });
                 }}
               </ProductConsumer>
             </div>
