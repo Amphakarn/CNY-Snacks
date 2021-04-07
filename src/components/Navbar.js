@@ -1,44 +1,58 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import logo from "../logo.svg";
+import { Link, NavLink } from "react-router-dom";
+// import logo from "../logo.svg";
 import styled from "styled-components";
 import { ButtonContainer } from "./Button";
 
 export default class Navbar extends Component {
   render() {
     return (
-      <NavWrapper className='navbar sticky-top navbar-expand-sm navbar-dark px-sm-5'>
-        {/* https://www.iconfinder.com/icons/1243689/call_phone_icon Creative
-        Commons (Attribution 3.0 Unported);
-        https://www.iconfinder.com/Makoto_msk */}
+      <NavWrapper className='navbar navbar-light navbar-expand-lg sticky-top px-sm-5 '>
         <Link to='/'>
-          <img src={logo} alt='logo' className='navbar-brand mr-5' />
+          <img
+            src={"../img/logo.gif"}
+            alt='logo'
+            className='navbar-brand mr-5'
+            style={{ width: "5em" }}
+          />
         </Link>
+        <button
+          className='navbar-toggler'
+          type='button'
+          data-toggle='collapse'
+          data-target='#collapsibleNavbar'
+          // aria-controls='collapsibleNavbar'
+          // aria-expanded='false'
+          // aria-label='Toggle navigation'
+        >
+          <span className='navbar-toggler-icon'></span>
+        </button>
         {/* require fixes for collapse */}
-        <div id='navbarResponsive' className='collapse navbar-collapse'>
+        <div id='collapsibleNavbar' className='collapse navbar-collapse'>
           <ul className='navbar-nav align-items-center mx-auto'>
-            <li className='nav-item mx-2'>
-              <Link to='/' className='nav-link'>
+            <li className='nav-item mx-3'>
+              <NavLink to='/' className='nav-link'>
                 home
-              </Link>
+                {/* <span className='sr-only'>(current)</span> */}
+              </NavLink>
             </li>
-            <li className='nav-item mx-2'>
-              <Link to='/products' className='nav-link'>
+            <li className='nav-item mx-3'>
+              <NavLink to='/products' className='nav-link'>
                 products
-              </Link>
+              </NavLink>
             </li>
-            <li className='nav-item mx-2'>
-              <Link to='/smallBuckets' className='nav-link'>
+            <li className='nav-item mx-3'>
+              <NavLink to='/smallBuckets' className='nav-link'>
                 ปิ๊บเล็ก
-              </Link>
+              </NavLink>
             </li>
-            <li className='nav-item mx-2'>
-              <Link to='/contact' className='nav-link'>
-                contact us
-              </Link>
+            <li className='nav-item mx-3'>
+              <NavLink to='/contact' className='nav-link'>
+                ติดต่อเรา
+              </NavLink>
             </li>
           </ul>
-          <Link to='/cart' className='ml-auto'>
+          <NavLink to='/cart' className='ml-auto'>
             <ButtonContainer>
               <span className='mr-2'>
                 <i className='fas fa-cart-plus'></i>
@@ -52,7 +66,7 @@ export default class Navbar extends Component {
               {/* </span> */}
               my cart
             </ButtonContainer>
-          </Link>
+          </NavLink>
         </div>
       </NavWrapper>
     );
@@ -60,10 +74,16 @@ export default class Navbar extends Component {
 }
 
 const NavWrapper = styled.nav`
-  background: var(--mainBlue);
+  background: var(--mainLightGrey);
   .nav-link {
-    color: var(--mainWhite) !important;
-    font-size: 1.3rem;
+    color: var(--mainDark) !important;
+    font-size: 1.5rem;
     text-transform: capitalize;
+  }
+  .nav-link:hover {
+    color: var(--mainOrange) !important;
+  }
+  .active {
+    color: var(--mainOrange) !important;
   }
 `;
