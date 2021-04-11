@@ -9,20 +9,25 @@ export default class NavBar extends Component {
   render() {
     return (
       <NavWrapper>
-        <Navbar className='nav-wrapper' bg='light' expand='lg' sticky='top'>
+        <Navbar
+          className='nav-wrapper px-5 py-4'
+          bg='light'
+          expand='lg'
+          sticky='top'
+        >
           <Link to='/'>
             <img
-              className='d-inline-block align-top mx-3 my-2'
+              className='d-inline-block align-top'
               src={"../img/logo.gif"}
               alt='logo'
-              style={{ width: "5em" }}
+              style={{ width: "6em" }}
             />
           </Link>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <ul className='navbar-nav mx-auto'>
               <li className='nav-item mx-3'>
-                <NavLink to='/' className='nav-link'>
+                <NavLink to='/' exact className='nav-link'>
                   หน้าหลัก
                 </NavLink>
               </li>
@@ -42,11 +47,12 @@ export default class NavBar extends Component {
                 </NavLink>
               </li>
             </ul>
-            <NavLink to='/cart' className='mx-3 my-2'>
-              <ButtonContainer>
-                <span className='mr-2'>
+            <NavLink to='/cart'>
+              <ButtonContainer style={{ borderStyle: "none" }}>
+                <div className='nav-cart'>
+                  <span>0</span>
                   <i className='fas fa-cart-plus'></i>
-                </span>
+                </div>
                 {/* testing to add number of item */}
                 {/* <span className='fa-stack fa-2x has-badge data-count="5"'> */}
                 {/* <i className='fa fa-circle fa-stack-2x fa-inverse'></i>
@@ -54,7 +60,7 @@ export default class NavBar extends Component {
                 {/* <i className='fa fa-circle fa-stack-2x'></i>
               <i className='fa fa-shopping-cart fa-stack-1x fa-inverse'></i> */}
                 {/* </span> */}
-                my cart
+                {/* my cart */}
               </ButtonContainer>
             </NavLink>
             <br />
@@ -81,5 +87,16 @@ const NavWrapper = styled.nav`
   }
   .active {
     color: var(--mainOrange) !important;
+  }
+  .nav-cart span {
+    position: absolute;
+    top: 45px;
+    right: 45px;
+    font-size: 0.7em;
+    color: black;
+    background: red;
+    padding: 1px 5px;
+    border-radius: 50%;
+    // z-index: -1;
   }
 `;
