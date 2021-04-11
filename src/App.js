@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ProductList from "./components/ProductList";
 import ProductListSmallBucket from "./components/ProductListSmallBucket";
@@ -15,7 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <React.Fragment>
-      <Navbar />
+      <NavBar />
       <Switch>
         <Route exact path='/' component={Home}></Route>
         <Route path='/products' component={ProductList}></Route>
